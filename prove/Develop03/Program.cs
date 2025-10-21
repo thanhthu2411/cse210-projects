@@ -54,6 +54,11 @@ class Program
                 scripture.HideRandomWords();
                 // scripture.DisplayScripture();
             }
+            else
+            {
+                Console.WriteLine("Invalid input.");
+                return;
+            }
 
             if (scripture.AllWordsHidden())
             {
