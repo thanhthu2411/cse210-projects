@@ -4,13 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Sandbox World!".ToUpper());
-        // Console.Write("What?");
-        // string color = Console.ReadLine();
-        string words = "hello sandbox world!";
-        TextInfo textInfor = CultureInfo.CurrentCulture.TextInfo;
-        string capitalized = textInfor.ToTitleCase(words);
-        Console.WriteLine(capitalized);
+        Bin twentyBin = new Bin("Twenties", 20.00, 5);
+        Bin tenBin = new Bin("Ten", 10.00, 10);
+        Bin pennyBin = new Bin("Penny", 0.01, 50);
+        
 
 
     }
