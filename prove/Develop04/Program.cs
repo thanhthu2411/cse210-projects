@@ -39,6 +39,10 @@ class Program
         };
 
         Prompts listingPrompts = new Prompts(listingPromptList);
+        BreathingActivity b1 = new BreathingActivity(4, 6, "Breathing activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.\n");
+        ReflectionActivity r1 = new ReflectionActivity(reflectionPrompts, reflectionQuestions, "Reflection activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.\n");
+        ListingActivity l1 = new ListingActivity(listingPrompts, "Listing activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.\n");
+
 
         // menu
         while (running)
@@ -47,17 +51,14 @@ class Program
             string option = Console.ReadLine();
             if (option == "1")
             {
-                BreathingActivity b1 = new BreathingActivity(4, 6, "Breathing activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.\n");
                 b1.Run();
             }
             else if (option == "2")
             {
-                ReflectionActivity r1 = new ReflectionActivity(reflectionPrompts, reflectionQuestions, "Reflection activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.\n");
                 r1.Run();
             }
             else if (option == "3")
             {
-                ListingActivity l1 = new ListingActivity(listingPrompts, "Listing activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.\n");
                 l1.Run();
             }
             else if (option == "4")
@@ -66,11 +67,11 @@ class Program
             }
             else
             {
-                Console.Write("Invalid input.");
+                Console.WriteLine("Invalid input.\n");
             }
 
         }
     }
 }
 
-// for creativity, I make sure no random prompts/questions are selected until they have all been used at least once in that session.
+// for creativity, I make sure no random prompts/questions are selected until they have all been used at least once in that session. I also created a new animation for the reflection activity.

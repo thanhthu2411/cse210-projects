@@ -38,41 +38,91 @@
 //     Console.WriteLine(ChooseRandomPrompt());
 // }
 
-void DisplayProgressBar(double f)
+// void DisplayProgressBar(double f)
+// {
+//     if (f < 0.1)
+//     {
+//         Console.WriteLine("[----------] 0%");
+//     }
+//     else if (f < 0.3)
+//     {
+//         Console.WriteLine("[-------###] 30%");
+//     }
+//     else if (f < 0.6)
+//     {
+//         Console.WriteLine("[----######] 60%");
+//     }
+//     else if (f < 0.9)
+//     {
+//         Console.WriteLine("[-#########] 90%");
+//     }
+//     else if (f == 1.0)
+//     {
+//         Console.WriteLine("[##########] 100%");
+//     }
+// }
+
+
+// DateTime startTime = DateTime.Now;
+// DateTime futureTime = startTime.AddSeconds(20);
+
+// // Console.WriteLine($"{startTime} - {futureTime}");
+
+
+// while (DateTime.Now < futureTime)
+// {
+//     // time progress bar
+//     TimeSpan remaining = futureTime - DateTime.Now;
+//     int remainingSeconds = remaining.Seconds;
+//     DisplayProgressBar((double)remainingSeconds / 20.0);
+// }
+
+//[>------<]
+
+
+// Console.WriteLine(message);
+
+int seconds = 10;
+
+string greater = ">";
+string less = "<";
+string s = new string('-', 10);
+
+string animation = "[>----------<]";
+string animation3 = "[ >--------< ]";
+string animation4 = "[  >------<  ]";
+string animation2 = $"[{greater}----------{less}]";
+
+string[] characters = { "[", ">", "-", "-", "-", "-", "-", "-", "-", "-", "<", "]" };
+// int greaterIdx = Array.IndexOf(characters, ">");
+// int lessIdx = Array.IndexOf(characters, "<");
+
+Console.Write(string.Join("", characters));
+
+for (int i = 0; i < seconds; i++) // timer
 {
-    if (f < 0.1)
-    {
-        Console.WriteLine("[----------] 0%");
-    }
-    else if (f < 0.3)
-    {
-        Console.WriteLine("[-------###] 30%");
-    }
-    else if (f < 0.6)
-    {
-        Console.WriteLine("[----######] 60%");
-    }
-    else if (f < 0.9)
-    {
-        Console.WriteLine("[-#########] 90%");
-    }
-    else if (f == 1.0)
-    {
-        Console.WriteLine("[##########] 100%");
-    }
-}
+    int greaterIdx = Array.IndexOf(characters, ">");
+    int lessIdx = Array.IndexOf(characters, "<");
 
+    if (greaterIdx == lessIdx - 1)
+    {
+        characters[greaterIdx] = "-";
+        characters[lessIdx] = "-";
+        characters[1] = ">";
+        characters[characters.Length - 2] = "<";
+    }
 
-DateTime startTime = DateTime.Now;
-DateTime futureTime = startTime.AddSeconds(20);
+    else if (greaterIdx < characters.Length / 2 && lessIdx > characters.Length / 2)
+    {
+        characters[greaterIdx] = "-";
+        characters[greaterIdx + 1] = ">";
+        characters[lessIdx] = "-";
+        characters[lessIdx - 1] = "<";
 
-// Console.WriteLine($"{startTime} - {futureTime}");
+    }
+    
+    Console.Write(new string('\b', characters.Length));
+    Console.Write(string.Join("", characters));
+    Thread.Sleep(1000);
 
-
-while (DateTime.Now < futureTime)
-{
-    // time progress bar
-    TimeSpan remaining = futureTime - DateTime.Now;
-    int remainingSeconds = remaining.Seconds;
-    DisplayProgressBar((double)remainingSeconds / 20.0);
 }

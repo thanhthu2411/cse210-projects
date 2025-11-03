@@ -53,6 +53,43 @@ public class Activity
         }
     }
 
+    public void PauseWithAnimation(int seconds)
+    {
+        string[] characters = { "[", ">", "-", "-", "-", "-", "-", "-", "-", "-", "<", "]" };
+        // int greaterIdx = Array.IndexOf(characters, ">");
+        // int lessIdx = Array.IndexOf(characters, "<");
+
+        Console.Write(string.Join("", characters));
+
+        for (int i = 0; i < seconds; i++) // timer
+        {
+            int greaterIdx = Array.IndexOf(characters, ">");
+            int lessIdx = Array.IndexOf(characters, "<");
+
+            if (greaterIdx == lessIdx - 1)
+            {
+                characters[greaterIdx] = "-";
+                characters[lessIdx] = "-";
+                characters[1] = ">";
+                characters[characters.Length - 2] = "<";
+            }
+
+            else if (greaterIdx < characters.Length / 2 && lessIdx > characters.Length / 2)
+            {
+                characters[greaterIdx] = "-";
+                characters[greaterIdx + 1] = ">";
+                characters[lessIdx] = "-";
+                characters[lessIdx - 1] = "<";
+
+            }
+
+            Console.Write(new string('\b', characters.Length));
+            Console.Write(string.Join("", characters));
+            Thread.Sleep(1000);
+
+        }
+    }
+
     public void SetDuration()
     {
         Console.Write("How long, in seconds, would you like for your session? ");

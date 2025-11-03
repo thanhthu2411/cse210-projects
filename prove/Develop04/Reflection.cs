@@ -22,7 +22,7 @@ public class ReflectionActivity : Activity
     public void DisplayQuestion(int index)
     {
         Console.Write($"{_questions[index]} ");
-        PauseWithSpinner(10);
+        PauseWithAnimation(10);
         Console.WriteLine();
     }
     
