@@ -1,0 +1,5 @@
+300
+Simple Goal|Give a talk|Speak in the meeting|100|True
+Eternal Goal|Study scriptures|Study for 10 mins|50
+Checklist Goal|Attend the temple|Attend and perform ordinance|50|500|3|2
+Simple Goal|test|testing hihi|1|False
