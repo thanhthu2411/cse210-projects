@@ -37,7 +37,6 @@ public abstract class Goal
     {
         return _point;
     }
-
     public abstract string SaveGoal();
     public virtual int RecordEvent()
     {

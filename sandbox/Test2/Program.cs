@@ -120,9 +120,10 @@ for (int i = 0; i < seconds; i++) // timer
         characters[lessIdx - 1] = "<";
 
     }
-    
+
     Console.Write(new string('\b', characters.Length));
     Console.Write(string.Join("", characters));
     Thread.Sleep(1000);
 
 }
+
