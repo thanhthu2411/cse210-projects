@@ -4,7 +4,7 @@ public class ChecklistGoal : Goal
     private int _timeToComplete;
     private int _bonusPoint;
     private int _timeDone;
-    private bool _isCompleted = false;
+    // private bool _isCompleted = false;
 
     public ChecklistGoal(int timeToComplete, int bonusPoint, string name, string des, int point, string type) : base(name, des, point, type)
     {
@@ -40,6 +40,11 @@ public class ChecklistGoal : Goal
         return _timeDone;
     }
 
+        public override bool GetStatus()
+    {
+        return _isCompleted;
+    }
+
     public void SetTimeDone(int time)
     {
         _timeDone = time;
@@ -63,6 +68,11 @@ public class ChecklistGoal : Goal
             _isCompleted = true;
             return _point + _bonusPoint;
         }
-        
+    }
+    
+    public override void ResetGoal()
+    {
+        _timeDone = 0;
+        _isCompleted = false;
     }
 }

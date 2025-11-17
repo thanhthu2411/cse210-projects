@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 public class GoalManager
 {
     private List<Goal> _goals = new List<Goal>();
+    private List<Goal> _completedGoals = new List<Goal>();
     private int _totalPoint;
 
     public GoalManager(List<Goal> goals)
@@ -153,7 +154,6 @@ public class GoalManager
 
         }
 
-
     }
 
     public void RecordEvents()
@@ -174,5 +174,39 @@ public class GoalManager
 
         Console.WriteLine($"Congratulations! You have earned {pointEarned} points!");
         Console.WriteLine($"You now have {_totalPoint} points.");
+    }
+
+    public void ResetGoals()
+    {
+        _completedGoals.Clear();
+
+        foreach (Goal g in _goals)
+        {
+            if (g.GetStatus())
+            {
+                _completedGoals.Add(g);
+            }
+        }
+
+        if (_completedGoals.Count == 0)
+        {
+            Console.WriteLine("There are no completed goals to reset.");
+        }
+        else
+        {
+            Console.WriteLine("\nCompleted goals:");
+            for (int i = 0; i < _completedGoals.Count(); i++)
+            {
+                Console.WriteLine($"{i + 1}. {_completedGoals[i].GetName()}");
+            }
+
+            Console.Write("Which goal do you want to reset? ");
+            string answer = Console.ReadLine();
+            int index = int.Parse(answer) - 1;
+
+            Goal g = _completedGoals[index];
+            g.ResetGoal();
+            Console.WriteLine($"Goal '{g.GetName()}' has been reset.");
+        }
     }
 }

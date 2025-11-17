@@ -11,5 +11,4 @@ public class EternalGoal : Goal
         return $"{GetGoalType()}|{GetName()}|{GetDescription()}|{GetPoint()}";
     }
 
-
 }

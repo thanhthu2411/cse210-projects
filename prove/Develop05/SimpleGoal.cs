@@ -1,7 +1,7 @@
 
 public class SimpleGoal : Goal
 {
-    private bool _isCompleted = false;
+    // private bool _isCompleted = false;
 
     public SimpleGoal(string name, string des, int point, string type) : base(name, des, point, type)
     {
@@ -21,7 +21,12 @@ public class SimpleGoal : Goal
         }
     }
 
-    public string GetStatus()
+    public override bool GetStatus()
+    {
+        return _isCompleted;
+    }
+
+    public string GetStatusString()
     {
         if (_isCompleted)
         {
@@ -40,13 +45,18 @@ public class SimpleGoal : Goal
 
     public override string SaveGoal()
     {
-        return $"{GetGoalType()}|{GetName()}|{GetDescription()}|{GetPoint()}|{GetStatus()}";
+        return $"{GetGoalType()}|{GetName()}|{GetDescription()}|{GetPoint()}|{GetStatusString()}";
     }
 
     public override int RecordEvent()
     {
         _isCompleted = true;
         return base.RecordEvent();
+    }
+
+    public override void ResetGoal()
+    {
+        _isCompleted = false;
     }
 
 

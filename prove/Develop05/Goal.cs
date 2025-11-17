@@ -7,6 +7,7 @@ public abstract class Goal
     protected string _description;
     protected int _point;
     protected string _goalType;
+    protected bool _isCompleted = false;
 
     public Goal(string name, string des, int point, string type)
     {
@@ -37,7 +38,15 @@ public abstract class Goal
     {
         return _point;
     }
+    public virtual bool GetStatus()
+    {
+        return false;
+    }
     public abstract string SaveGoal();
+    public virtual void ResetGoal()
+    {
+        
+    }
     public virtual int RecordEvent()
     {
         return _point;

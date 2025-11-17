@@ -12,7 +12,7 @@ class Program
         {
             gm.DisplayPoint();
 
-            Console.Write("Menu Options:\n1. Create New Goal\n2. List Goals\n3. Save Goals\n4. Load Goals\n5. Record Event\n6. Quit\nSelect a choice from the menu: ");
+            Console.Write("Menu Options:\n1. Create New Goal\n2. List Goals\n3. Save Goals\n4. Load Goals\n5. Record Event\n6. Reset a goal\n7.Quit\nSelect a choice from the menu: ");
             string option = Console.ReadLine();
             if (option == "1")
             {
@@ -36,6 +36,10 @@ class Program
             }
             else if (option == "6")
             {
+                gm.ResetGoals();
+            }
+            else if (option == "7")
+            {
                 running = false;
             }
             else
@@ -47,3 +51,6 @@ class Program
 
     }
 }
+
+// for creativity, I added a new method to the Menu, which is "Reset a goal". This method allows 
+// users to reset a goal that had been already completed.
