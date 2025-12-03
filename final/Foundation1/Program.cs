@@ -34,9 +34,9 @@ class Program
         foreach(Video v in videoList)
         {
             v.DisplayInfor();
-            Console.WriteLine("** Comment section **");
+            Console.WriteLine("\n*** Comment section ***");
             v.DisplayComments();
-            Console.WriteLine("");
+            Console.WriteLine("-----------------------------");
         }
     }
 }

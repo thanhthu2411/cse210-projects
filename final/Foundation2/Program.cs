@@ -8,7 +8,7 @@ class Program
             new Address("123 Maple Street", "Austin", "TX", "USA"));
 
         Customer c2 = new Customer("Nick Smith",
-            new Address("87 Pine Ridge Ave", "Seattle", "WA", "USA"));
+            new Address("87 Pine Ridge Ave", "Hanoi", "HA", "VN"));
 
 
         List<Product> pl1 = new List<Product>()

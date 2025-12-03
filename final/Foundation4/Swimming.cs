@@ -12,7 +12,7 @@ public class Swimming : Activity
 
     public override double GetDistance()
     {
-        return _lapNumber * 50/ 1000.0;
+        return _lapNumber * 50 / 1000.0;
     }
 
     public override double GetSpeed()
@@ -22,6 +22,6 @@ public class Swimming : Activity
 
     public override double GetPace()
     {
-        return 60/GetSpeed();
+        return 60 / GetSpeed();
     }
 }

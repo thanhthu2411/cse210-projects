@@ -9,7 +9,7 @@ public class Reception : Event
         _email = email;
     }
 
-    public string FullDetails()
+    public override string FullDetails()
     {
         return $"{StandardDetails()}\nEmail: {_email}\nType: Reception";
     }

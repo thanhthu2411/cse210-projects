@@ -11,7 +11,7 @@ public class Lecture : Event
         _capacity = capacity;
     }
 
-    public string FullDetails()
+    public override string FullDetails()
     {
         return $"{StandardDetails()}\nSpeaker: {_speaker}\nCapacity: {_capacity}\nType: Lecutre";
     }

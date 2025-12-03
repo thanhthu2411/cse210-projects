@@ -9,8 +9,8 @@ public class Outdoor : Event
         _weather = weather;
     }
 
-    public string FullDetails()
+    public override string FullDetails()
     {
-        return $"{StandardDetails()}\nWeather: The weather is {_weather}\nType: Outdoor";
+        return $"{StandardDetails()}\nWeather: {_weather}\nType: Outdoor";
     }
 }

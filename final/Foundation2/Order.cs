@@ -3,7 +3,6 @@ public class Order
 {
     private Customer _customer;
     private List<Product> _products = new List<Product>();
-    private int _shippingCost;
 
     public Order(Customer cus, List<Product> products)
     {
@@ -11,15 +10,15 @@ public class Order
         _products = products;
     }
 
-    public void SetShippingCost()
+    public int GetShippingCost()
     {
         if (_customer.IsLivingInUsa())
         {
-            _shippingCost = 5;
+            return 5;
         }
         else
         {
-            _shippingCost = 35;
+            return 35;
         }
     }
 
@@ -31,7 +30,7 @@ public class Order
             total += p.TotalCost();
         }
 
-        return total + _shippingCost;
+        return total + GetShippingCost();
     }
 
     public string GetPackingLabel()

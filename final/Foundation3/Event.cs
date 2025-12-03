@@ -27,4 +27,9 @@ public class Event
         return $"Type: {_type}\nTitle: {_title}\nDate: {_date}";
     }
 
+    public virtual string FullDetails()
+    {
+        return "";
+    }
+
 }
